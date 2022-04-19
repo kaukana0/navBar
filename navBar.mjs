@@ -2,6 +2,10 @@
 */
 
 const html = `
+
+<link rel="stylesheet" href="redist/bootstrap/css/bootstrap.min.css">
+
+
 <nav class="navbar navbar-expand-sm">
 <div class="container-fluid">
 
@@ -68,16 +72,16 @@ class MyElement extends HTMLElement {
 
 		this.attachShadow({ mode: 'open' })
 
-        // this makes the content be outside the shadow dom, thus bootstrap js from there is used. 
-        // not what we actually want. we want to include bootstrap (css and js) in the shadow dom.
-        const template = document.createElement('template');
-        template.innerHTML = "<slot name='content'></slot>"
-        this.shadowRoot.appendChild(template.content.cloneNode(true))
-        this.innerHTML += `<div slot='content'>${html}</div>`
+        // no errors, js gets loaded but doesn't work
+        // because bootstrap events just don't work in shadow dom
+        // :-(
+        const s = document.createElement( 'script' )
+        s.src = "./redist/bootstrap/js/bootstrap.bundle.min.js"
+        this.shadowRoot.appendChild(s)
 
-        //this.template = document.createElement('template');
-        //this.template.innerHTML = html
-        //this.innerHTML += `<div slot='content'></div>`
+        const template = document.createElement('template');
+        template.innerHTML = html
+        this.shadowRoot.appendChild(template.content.cloneNode(true))
     }
     
     #bla(attribute) {
