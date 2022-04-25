@@ -1,24 +1,21 @@
 /*
 */
 
+
+// css & js not referenced here, because bootstrap js doesn't work within shadow dom.
+// this component is in the light dom and uses what's available there.
 function html(inject) {
 return `
-<!--link rel="stylesheet" href="redist/bootstrap/css/bootstrap.min.css">
-<script src="./redist/bootstrap/js/bootstrap.bundle.min.js"></script-->
-
-
-<nav class="navbar navbar-expand-sm">
-<div class="container-fluid">
+<nav class="navbar navbar-expand-sm navbar-light">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nnn">
-        <span class="navbar-toggler-icon">XX</span>
+        <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="nnn">
         <div class="navbar-nav mr-auto">
             ${inject}
         </div>
     </div>
-</div>
 </nav>
 `}
 
