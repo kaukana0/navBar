@@ -1,23 +1,37 @@
 
 function html(url) {
 return `
-<a class="nav-item nav-link" id="fb" href="#">FB</a>
+<a class="nav-item nav-link" id="fb" href="${url}">
+<img src="./components/navBar/assets/facebook.svg" style="width: 2em; height: auto;"></img>
+</a>
 `}
 
 
-class MyElement extends HTMLElement {
+class Element extends HTMLElement {
 
     constructor() {
         super()
-        this.innerHTML = html(this.getAttribute('url'))
+        if(this.getAttribute('url')) {
+            this.innerHTML = html(this.getAttribute('url'))
+        } else {
+            this.init("")
+        }
     }
-    
-    connectedCallback() {
+        
+    init(text) {
+        this.innerHTML = html(this.#buildURL(text))
     }
 
-    static get observedAttributes() {
-        return ['url'];
+    #buildURL(text) {
+        return "https://www.facebook.com/sharer/sharer.php?u='" +
+            encodeURIComponent(window.location.href) +
+            '&t=' +
+            encodeURIComponent(text)
     }
+  
+    
 }
 
-window.customElements.define('nav-bar-item-fb', MyElement)
+export {Element as NavBarItemFB}
+
+window.customElements.define('nav-bar-item-fb', Element)

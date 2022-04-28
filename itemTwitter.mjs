@@ -1,30 +1,36 @@
 
 function html(url) {
 return `
-<a class="nav-item nav-link" id="tw" href="${url}">Tw</a>
+<a class="nav-item nav-link" id="tw" href="${url}">
+<img src="./components/navBar/assets/twitter-square.svg" style="width: 2em; height: auto;"></img>
+</a>
 `}
 
 
-class MyElement extends HTMLElement {
+class Element extends HTMLElement {
 
     constructor() {
         super()
+        this.init(
+          this.getAttribute('language') || "en",
+          this.getAttribute('hashtags') || "",
+          this.getAttribute('text') || "")
     }
 
     init(language, hashtags, text) {
-      this.innerHTML = html(this.#buildLocationURL(language, hashtags, text))
+      this.innerHTML = html(this.#buildURL(language, hashtags, text))
     }
 
     initWithUrl(url) {
       this.innerHTML = html(url)
     }
 
-    #buildLocationURL(lang, hashtags, text) {
+    #buildURL(lang, hashtags, text) {
       let retVal = 'https://twitter.com/intent/tweet'
     
-      let currentLocationObject = window.location
+      const currentLocationObject = window.location
       // we only need the root path of the URL
-      let currentLocation = currentLocationObject.protocol + '//' + currentLocationObject.host + currentLocationObject.pathname + '?lang=' + lang
+      const currentLocation = currentLocationObject.protocol + '//' + currentLocationObject.host + currentLocationObject.pathname + '?lang=' + lang
     
       retVal += '?hashtags=' + hashtags
       retVal += '&text=' + encodeURI(text)
@@ -36,6 +42,6 @@ class MyElement extends HTMLElement {
 
 }
 
-export {MyElement as NavBarItemTwitter}
+export {Element as NavBarItemTwitter}
 
-window.customElements.define('nav-bar-item-twitter', MyElement)
+window.customElements.define('nav-bar-item-twitter', Element)
