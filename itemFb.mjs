@@ -22,6 +22,15 @@ class Element extends HTMLElement {
         this.innerHTML = html(this.#buildURL(text))
     }
 
+    static get observedAttributes() {
+        return [ 'text' ];
+    }
+
+    attributeChangedCallback(name, oldVal, newVal) {
+        if (oldVal === newVal) { return }
+        if (name === 'text') { this.init(newVal) }
+    }
+
     #buildURL(text) {
         return "https://www.facebook.com/sharer/sharer.php?u='" +
             encodeURIComponent(window.location.href) +
