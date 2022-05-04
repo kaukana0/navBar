@@ -30,7 +30,7 @@ data-bs-toggle="modal" data-bs-target="#embed-modal" href="#" style="witdh:100px
 
 
 
-class MyElement extends HTMLElement {
+class Element extends HTMLElement {
     constructor() {
         super()
 
@@ -42,4 +42,4 @@ class MyElement extends HTMLElement {
     }
 }
 
-window.customElements.define('nav-bar-item-embed', MyElement)
+window.customElements.define('nav-bar-item-embed', Element)

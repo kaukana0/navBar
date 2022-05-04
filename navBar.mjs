@@ -20,7 +20,7 @@ return `
 `}
 
 
-class MyElement extends HTMLElement {
+class Element extends HTMLElement {
 
 	constructor() {
 		super()
@@ -35,4 +35,4 @@ class MyElement extends HTMLElement {
 	}
 }
 
-window.customElements.define('nav-bar', MyElement)
+window.customElements.define('nav-bar', Element)
