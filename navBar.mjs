@@ -8,10 +8,10 @@ function html(inject) {
 return `
 <nav class="navbar navbar-expand-sm navbar-light">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nnn">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#id5fd24c7e">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="nnn">
+    <div class="collapse navbar-collapse" id="id5fd24c7e">
         <div class="navbar-nav mr-auto">
             ${inject}
         </div>

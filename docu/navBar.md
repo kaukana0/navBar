@@ -1,3 +1,7 @@
+# deps
+
+all items need fontawesome (free-6.1.1-web)
+embed needs also bootstrap-5.1.3 (because of the modal)
 
 # usage example
 

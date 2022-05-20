@@ -1,8 +1,11 @@
 
 function html(url) {
 return `
-<a class="nav-item nav-link" id="tw" href="${url}">
-<img src="./components/navBar/assets/twitter-square.svg" style="width: 2em; height: auto;"></img>
+<a class="nav-item nav-link" id="twitter" href="${url}">
+<span class="fa-stack fa-1x">
+<i class="fa-solid fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
 </a>
 `}
 

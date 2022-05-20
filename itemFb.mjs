@@ -2,7 +2,10 @@
 function html(url) {
 return `
 <a class="nav-item nav-link" id="fb" href="${url}">
-<img src="./components/navBar/assets/facebook.svg" style="width: 2em; height: auto;"></img>
+<span class="fa-stack fa-1x">
+<i class="fa-solid fa-circle fa-stack-2x"></i>
+<i class="fa-brands fa-facebook-f fa-stack-1x fa-inverse"></i>
+</span>
 </a>
 `}
 

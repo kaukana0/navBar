@@ -24,7 +24,10 @@ return `
 
 <a class="nav-item social-button pointer nav-link d-flex justify-content-start align-items-center" id="embed-button" title="Embed this chart"
 data-bs-toggle="modal" data-bs-target="#embed-modal" href="#" style="witdh:100px;">
-<img src="./components/navBar/assets/code.svg" style="width: 2.2em; height: auto;"></img>
+<span class="fa-stack fa-1x">
+<i class="fa-solid fa-circle fa-stack-2x"></i>
+<i class="fa-solid fa-code fa-stack-1x fa-inverse"></i>
+</span>
 </a>
 `}
 
