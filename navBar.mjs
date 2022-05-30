@@ -17,6 +17,15 @@ return `
         </div>
     </div>
 </nav>
+
+<style>
+.fa-circle {color: #044aa3;}
+/* spacing between items */
+.nav-link {
+	padding-left:0 !important;
+	padding-right:0 !important;
+}
+</style>
 `}
 
 
