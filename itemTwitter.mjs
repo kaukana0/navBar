@@ -39,16 +39,10 @@ class Element extends HTMLElement {
 
     #buildURL(hashtags, text) {
       let retVal = 'https://twitter.com/intent/tweet'
-    
-      const lang = String.locale
-      const currentLocationObject = window.location
-      // we only need the root path of the URL
-      const currentLocation = currentLocationObject.protocol + '//' + currentLocationObject.host + currentLocationObject.pathname + '?lang=' + lang
-    
       retVal += '?hashtags=' + hashtags
       retVal += '&text=' + encodeURI(text)
-      retVal += '&url=' + encodeURI(currentLocation)
-    
+      const rootPath = window.location.protocol + '//' + window.location.host + window.location.pathname + '?lang=' + String.locale
+      retVal += '&url=' + encodeURI(rootPath)
       return retVal
     }
     
