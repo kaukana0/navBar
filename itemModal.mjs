@@ -4,7 +4,7 @@ depends on bootstrap 5.
 TODO: translations
  */
 
-function html(header, symbol, hasClose, toolTipText) {
+function html(header, symbol, hasClose) {
     const rndId = "some-modal" + Math.floor(Math.random() * 100);   // make uniqe in case this is used more than once. no shadow DOM :-(
 
     const footer = hasClose ? `
@@ -27,7 +27,7 @@ function html(header, symbol, hasClose, toolTipText) {
         </div>
     </div>
 
-    <a class="nav-item social-button pointer nav-link d-flex justify-content-start align-items-center" id="embed-button" title="${toolTipText}" data-bs-toggle="modal" data-bs-target="#${rndId}" href="#" style="witdh:100px;">
+    <a class="nav-item social-button pointer nav-link d-flex justify-content-start align-items-center" id="embed-button" data-bs-toggle="modal" data-bs-target="#${rndId}" href="#" style="witdh:100px;">
         <span class="fa-stack fa-1x">
             <i class="fa-solid fa-circle fa-stack-2x"></i>
             <i class="${symbol} fa-stack-1x fa-inverse"></i>
@@ -42,7 +42,7 @@ class Element extends HTMLElement {
         const childrenBeforeReplace = this.#copyChildren()  // childs of this element
 
         const header = this.getAttribute('headerText') || ""
-        this.innerHTML = html(header, this.getAttribute('symbol'), this.hasAttribute('closeButton'), this.getAttribute('tooltip'))   // replace children w/ new html (bootstrap dialog)
+        this.innerHTML = html(header, this.getAttribute('symbol'), this.hasAttribute('closeButton'))   // replace children w/ new html (bootstrap dialog)
 
         window.requestAnimationFrame(() => {
             this.querySelector('.modal-body').appendChild(childrenBeforeReplace)
