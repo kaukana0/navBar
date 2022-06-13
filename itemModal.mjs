@@ -5,7 +5,7 @@ TODO: translations
  */
 
 function html(header, symbol, hasClose) {
-    const rndId = "some-modal" + Math.floor(Math.random() * 100);   // make uniqe in case this is used more than once. no shadow DOM :-(
+    const rndId = "some-modal" + Math.floor(Math.random() * 10000);   // make uniqe in case this is used more than once. no shadow DOM :-(
 
     const footer = hasClose ? `
         <div class="modal-footer">
