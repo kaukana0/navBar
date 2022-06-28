@@ -27,7 +27,7 @@ function html(header, symbol, hasClose) {
         </div>
     </div>
 
-    <a class="nav-item social-button pointer nav-link d-flex justify-content-start align-items-center" id="embed-button" data-bs-toggle="modal" data-bs-target="#${rndId}" href="#" style="witdh:100px;">
+    <a class="nav-item social-button pointer nav-link d-flex" id="embed-button" data-bs-toggle="modal" data-bs-target="#${rndId}" href="#" style="witdh:100px;">
         <span class="fa-stack fa-1x">
             <i class="fa-solid fa-circle fa-stack-2x"></i>
             <i class="${symbol} fa-stack-1x fa-inverse"></i>

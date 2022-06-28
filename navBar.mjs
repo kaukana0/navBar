@@ -12,7 +12,7 @@ return `
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="id5fd24c7e">
-        <div class="navbar-nav mr-auto">
+        <div class="navbar-nav">
             ${inject}
         </div>
     </div>
