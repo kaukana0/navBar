@@ -25,6 +25,25 @@ return `
 	padding-left:0 !important;
 	padding-right:0 !important;
 }
+
+/*
+(only) when hamburger menu is shown, make the expanded navbar an opaque box
+*/
+@media (max-width: 576px) {
+    .navbar-collapse.collapse.show {
+        background-color:white; 
+        border-left:1px solid; 
+        border-right:1px solid; 
+        border-bottom:1px solid; 
+        border-radius: 5px;
+    }
+}
+
+.navbar-collapse.collapse.show {
+    /* must be >5 because above other content (see for instance, dropdownBox).
+    is arbitrarily set to 10 to allow some levels below. */
+    z-index: 10;
+}
 </style>
 `}
 
