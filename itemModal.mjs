@@ -32,7 +32,7 @@ function html(header, symbol, hasClose) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">${header}</h4>
+                    <h1 class="modal-title">${header}</h1>
                     <button type="button" class="btn-close close" data-bs-dismiss="modal"></button>
                 </div>
                 <div id="${rndId}-body" class="modal-body"></div>
