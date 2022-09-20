@@ -49,6 +49,4 @@ class Element extends HTMLElement {
 
 }
 
-export {Element as NavBarItemTwitter}
-
 window.customElements.define('nav-bar-item-twitter', Element)
