@@ -17,7 +17,7 @@ returns an id and 2 html code fragments.
 - the id refers to the content area of the modal html, so that's where this element's children go.
 that's basically an imitation of the standard slot mechanism.
 */
-function html(header, symbol, hasClose) {
+function html(header, headerStyle, symbol, hasClose) {
     const rndId = "some-modal" + Math.floor(Math.random() * 10000);   // make uniqe in case this is used more than once. no shadow DOM :-(
 
     const footer = hasClose ? `
@@ -32,7 +32,7 @@ function html(header, symbol, hasClose) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title">${header}</h1>
+                    <h1 class="modal-title" style="${headerStyle}">${header}</h1>
                     <button type="button" class="btn-close close" data-bs-dismiss="modal"></button>
                 </div>
                 <div id="${rndId}-body" class="modal-body"></div>
@@ -55,7 +55,8 @@ class Element extends HTMLElement {
         super()
         const children = this.#copyChildren()   // think of the children
         const header = this.getAttribute('headerText') || ""
-        const [id, content, button] = html(header, this.getAttribute('symbol'), this.hasAttribute('closeButton'))
+        const headerStyle = this.getAttribute('headerStyle') || ""
+        const [id, content, button] = html(header, headerStyle, this.getAttribute('symbol'), this.hasAttribute('closeButton'))
         this.innerHTML = button     // replaces the children of this, goes into the navbar
         document.body.insertAdjacentHTML('beforeend', content); // should not be nested, otherwise there might occur issues like "Bootstrap modal appearing under background"
         window.requestAnimationFrame(() => {
