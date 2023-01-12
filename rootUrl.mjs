@@ -3,7 +3,7 @@ class Element extends HTMLElement {
         super()
         let rootPath = window.location.protocol + '//' + window.location.host + window.location.pathname
         let url = this.getAttribute('url') || rootPath
-        this.innerHTML = `&lt;iframe src="${url}" height="768" width="1000"&gt;&lt;/iframe&gt;`
+        this.innerHTML = `&lt;iframe src="${url}" height="600px" width="100%"&gt;&lt;/iframe&gt;`
     }
 }
 window.customElements.define('nav-bar-root-url', Element)
